@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+      <div class="row">
+         <div class="col-md-12">
+             <h1 class="page-header">
+                  Options <small>WebDL</small>
+             </h1>
+         </div>
+      </div>
+      <!-- /. ROW  -->
+
+ <div class="row">
+     <div class="col-md-12">
+         <!-- Advanced Tables -->
+         <div class="panel panel-default">
+             <div class="panel-heading">
+                  Options
+             </div>
+             <div class="panel-body">
+                 <div class="table-responsive">
+                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                         <thead>
+                             <tr>
+                                 <th>Type</th>
+                                 <th>Option</th>
+                                 <th>Value</th>
+                             </tr>
+                         </thead>
+                         <tbody>
+                           {% for option in options %}
+                             <tr class="even gradeX">
+                               <td>{{option.option_type}}</td>
+                               <td>{{option.option}}</td>
+                               <td>{{option.option_value}}</td>
+                             </tr>
+                           {% endfor %}
+                         </tbody>
+                     </table>
+                 </div>
+
+             </div>
+         </div>
+         <!--End Advanced Tables -->
+{% endblock %}

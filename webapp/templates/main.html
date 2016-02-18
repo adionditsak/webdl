@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block content %}
+      <div class="row">
+         <div class="col-md-12">
+             <h1 class="page-header">
+                 Websites <small>WebDL</small>
+                 <p style="float:right; margin-top:-40px;">Scrape website from URL to static files, optimize, and transfer.<br/>
+                   Avoid security problems with high amount of dynamic websites.</p>
+             </h1>
+          </div>
+      </div>
+      <!-- /. ROW  -->
+
+      <div class="row">
+          <div class="col-md-12">
+            <a href="#" class="btn btn-primary">Add website</a>
+            <a href="#" class="btn btn-primary">Scrape all</a>
+            <a href="#" class="btn btn-primary">Transfer all</a>
+          <br/><br/>
+          </div>
+      </div>
+
+ <div class="row">
+     <div class="col-md-12">
+         <!-- Advanced Tables -->
+         <div class="panel panel-default">
+             <div class="panel-heading">
+                  Websites
+             </div>
+             <div class="panel-body">
+                 <div class="table-responsive">
+                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                         <thead>
+                             <tr>
+                                 <th>ID</th>
+                                 <th>Website</th>
+                                 <th>Last processed</th>
+                                 <th>View local website</th>
+                                 <th>View logs</th>
+                                 <th>Status</th>
+                                 <th></th>
+                                 <th></th>
+                             </tr>
+                         </thead>
+                         <tbody>
+                           {% for website in websites %}
+                             <tr class="even gradeX">
+                                 <td>{{website.id}}</td>
+                                 <td>{{website.url}}</td>
+                                 <td>{{website.last_modified}}</td>
+                                 <td class="center"><a target="_blank" href="/static/local_websites/{{website.url}}/{{website.url}}/index.html"><i class="fa fa-dashboard center"></i></a></td>
+                                 <td class="center"><a href="/logs"><i class="fa fa-dashboard center"></i></a></td>
+                                 <td class="center">OK</td>
+                                 <td><a href="#" class="btn btn-primary">Scrape</a></td>
+                                 <td><a href="#" class="btn btn-primary">Transfer</a></td>
+                             </tr>
+                           {% endfor %}
+                         </tbody>
+                     </table>
+                 </div>
+
+             </div>
+         </div>
+         <!--End Advanced Tables -->
+{% endblock %}
